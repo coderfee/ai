@@ -1,40 +1,40 @@
 ---
 name: commit
-description: A skill for committing changes to a version control system, such as Git.
+description: 用于向版本控制系统（如 Git）提交更改的技能。
 ---
 
 # commit
 
-This skill provides a structured and efficient workflow for committing changes to a version control system. It ensures that all changes are properly reviewed, grouped logically, and committed with clear and concise messages that follow best practices. The agent will analyze the changes, organize them into meaningful commits, and execute the necessary commands to maintain a clean and professional commit history. This process helps developers collaborate effectively and maintain high code quality in the project.
+此技能提供了一种结构化且高效的工作流程，用于向版本控制系统提交更改。它确保所有更改都经过适当的审查、逻辑分组，并遵循最佳实践提交清晰简洁的提交消息。代理将分析更改，将其组织成有意义的提交，并执行必要的命令以保持干净专业的提交历史记录。此过程帮助开发者有效协作并保持项目的高代码质量。
 
-## When to use
+## 使用时机
 
-This skill should be used when there are changes in the codebase that need to be committed to a version control system, such as Git. It is particularly useful for developers who want to maintain a clean and organized commit history by following best practices for commit messages and grouping related changes together.
+当代码库中有需要提交到版本控制系统的更改时，应使用此技能。对于希望遵循提交消息最佳实践并将相关更改分组在一起来维护干净有序的提交历史的开发者来说，它特别有用。
 
-## Workflow
+## 工作流程
 
-1. **Check**: Run `git status` to analyze changed files.
-2. **Group**:
-   - Strongly related/small changes: Combine into a single commit.
-   - Weakly related/multiple modules involved: Split into multiple commits based on logic/functionality.
-3. **Commit**: Generate a Commit Message for each group of changes and immediately execute `git commit -m "..."`.
-4. **Push**: After completing all commits, run `git push`.
+1. **检查**: 运行 `git status` 分析已更改的文件。
+2. **分组**:
+   - 强相关/小更改: 合并到单个提交中。
+   - 弱相关/涉及多个模块: 根据逻辑/功能拆分为多个提交。
+3. **提交**: 为每组更改生成提交消息并立即执行 `git commit -m "..."`。
+4. **推送**: 完成所有提交后，运行 `git push`。
 
-## Commit Message Guidelines
+## 提交消息规范
 
-- **Format**: `<type>(<scope>): <subject>`
-- **Type (Required)**: feat, fix, docs, style, refactor, perf, test, chore, revert
-- **Scope (Optional)**: Lowercase English, describing the affected scope, such as `(auth)`, `(utils)`
-- **Subject (Required)**: In English, ≤50 characters, no period at the end. Must be specific, and avoid vague terms like "modify code" or "update".
-- **Body**: Do not generate any Body description.
+- **格式**: `<类型>(<范围>): <主题>`
+- **类型 (必填)**: feat, fix, docs, style, refactor, perf, test, chore, revert
+- **范围 (可选)**: 小写英文，描述受影响的范围，如 `(auth)`、`(utils)`
+- **主题 (必填)**: 英文，不超过 50 个字符，末尾不加句号。必须具体，避免使用"修改代码"或"更新"等模糊术语。
+- **正文**: 始终使用单行提交消息 (`git commit -m "..."`)，禁止添加 `-m ""`、空行或任何正文内容。
 
-## Execution Rules
+## 执行规则
 
-- **Do not** use `--no-verify`.
-- **Do not** use `git push -f` (regardless of user request).
-- **Automation**: Analyze the diff and execute the command directly without secondary confirmation.
+- **不要** 使用 `--no-verify`。
+- **不要** 使用 `git push -f`（无论用户请求如何）。
+- **自动化**: 分析差异并直接执行命令，无需二次确认。
 
-## Examples
+## 示例
 
-- `feat(user): Add user phone one-click login feature`
-- `fix(order): Fix negative stock deduction under high concurrency`
+- `feat(user): 添加用户手机一键登录功能`
+- `fix(order): 修复高并发下负库存扣减问题`
