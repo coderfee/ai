@@ -1,44 +1,47 @@
 ---
 name: commit
-description: 结构化 Git 提交工作流。用于：(1) 分析更改并逻辑分组，(2) 生成规范提交消息并提交，(3) 安全同步远程。在需要提交代码、执行 git commit 或推送更改时使用。
+description: Git 提交工作流
 ---
 
 # commit
 
-执行标准化的 Git 提交流程，维护清晰的项目历史。
+执行标准化的 Git 提交流程，确保提交历史符合 Conventional Commit Messages。
 
 ## 工作流程
 
-1. 运行 `git status` 和 `git diff` 分析当前工作区的更改。
-2. 将更改按逻辑功能分组：强相关更改合并，不同功能或模块的更改拆分为独立提交。
-3. 为每组更改生成符合规范的单行提交消息。
-4. 执行 `git commit -m "<message>"`。
-5. 完成所有提交后，执行 `git push` 同步至远程。
+1. **分析更改**: 运行 `git status` 和 `git diff` 识别改动逻辑。
+2. **逻辑分组**: 将不同功能或模块的更改拆分为独立的提交，严禁一次性提交不相关的改动。
+3. **生成消息**: 为每组更改生成**全英文**的规范消息。
+4. **自动执行**: 按顺序执行 `git add .` (或特定文件) 和 `git commit -m "<message>"`。
+5. **安全推送**: 完成所有本地提交后，执行 `git push`。
 
 ## 消息规范
 
-- **格式**: `<type>(scope): subject`
-- **类型**:
-  - `feat`: 新功能
-  - `fix`: 修复
-  - `docs`: 文档
-  - `style`: 格式调整
-  - `refactor`: 重构
-  - `perf`: 性能
-  - `test`: 测试
-  - `chore`: 事务
-  - `revert`: 回退
-- **规范**: `scope` 为小写英文；`subject` 需具体且简明，结尾不加句号。
-- **限制**: 严禁使用多行消息或空正文。
+- **语言**: 必须使用**英文 (English)**。
+- **格式**: `<type>(<scope>): <subject>`
+  - **Type**: 必须从以下范围选择：
+    - `feat`: New feature
+    - `fix`: Bug fix
+    - `docs`: Documentation only changes
+    - `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+    - `refactor`: A code change that neither fixes a bug nor adds a feature
+    - `perf`: A code change that improves performance
+    - `test`: Adding missing tests or correcting existing tests
+    - `chore`: Changes to the build process or auxiliary tools and libraries
+  - **Scope**: 可选，小写英文，指出改动范围（如：auth, parser, user-api）。
+  - **Subject**: 
+    - 使用祈使句（Imperative mood），首字母不要大写。
+    - 结尾不要加句号 `.`。
+    - 简洁明了，控制在 50 字符以内。
 
 ## 约束规则
 
-- 严禁执行 `git push -f`。
-- 严禁使用 `--no-verify` 跳过校验。
-- 自动化执行：分析并直接执行命令，无需二次确认。
+- **严禁使用 Emoji**: 保持纯文本格式。
+- **严禁 Force Push**: 确保远程分支安全。
+- **单行模式**: 消息必须是单行，严禁换行或正文描述。
 
 ## 示例
 
-- `feat(auth): 添加短信验证码登录`
-- `fix(db): 修复连接池泄漏问题`
-- `refactor(utils): 优化日期处理函数`
+- `feat(auth): add google oauth2 support`
+- `fix(db): resolve connection leak in production`
+- `refactor(utils): simplify date format logic`
