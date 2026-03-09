@@ -19,7 +19,7 @@ description: 初始化项目规范，同步多平台 AI 开发上下文。
 ## AGENTS.md 规范模板
 
 ```markdown
-# AGENTS.md
+# Agents Instruction
 
 > **AI 指令级别**：项目全局上下文与行为准则
 > **交流语言**：用户交互始终使用 **简体中文**
