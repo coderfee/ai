@@ -12,6 +12,7 @@ description: AI 助手的初始化技能
 1. 深入分析项目
 2. 明确需求和目标、架构、技术栈、工作流程
 3. 生成 AGENTS.md 文件，确保编程工具能够正确解析和使用其中的信息
+4. 以 AGENTS.md 为基准，创建 `GEMINI.md` 和 `CLAUDE.md` 文件，并将其软链接到 `AGENTS.md`，确保所有文件内容一致且易于维护
 
 ## AGENTS.md 规范
 
