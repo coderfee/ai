@@ -1,0 +1,23 @@
+{
+  "skill_name": "android-build",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我打个release包",
+      "expected_output": "自动更新版本号，构建release包，导出到下载目录和U盘，输出最终路径",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "打包debug版本，不需要更新版本号",
+      "expected_output": "不更新版本号，构建debug包，导出到下载目录",
+      "files": [".androidbuild.yml"]
+    },
+    {
+      "id": 3,
+      "prompt": "打国内渠道的release包",
+      "expected_output": "使用china flavor构建release包，按配置导出",
+      "files": [".androidbuild.yml"]
+    }
+  ]
+}
