@@ -1,6 +1,6 @@
 ---
 name: init
-description: 初始化项目规范，同步多平台 AI 开发上下文。
+description: 初始化项目 AI 开发规范，当用户需要创建项目协作准则、同步多 AI 上下文时使用。
 ---
 
 ## 技能定义：init
@@ -10,9 +10,15 @@ description: 初始化项目规范，同步多平台 AI 开发上下文。
 ### 执行工作流
 
 1. **扫描 (Scan)**：自动读取根目录配置文件（`package.json`, `pyproject.toml`, `go.mod` 等）识别技术栈。
+   - 扩展支持：Cargo.toml, composer.json, Makefile, Dockerfile
+   - 冲突处理：多配置文件共存时按优先级识别核心技术栈
 2. **建模 (Model)**：分析目录结构，确定核心业务逻辑存放路径。
 3. **生成 (Generate)**：填充下方的 `AGENTS.md` 模板。
+   - 自动填充：技术栈、常用命令、目录结构、更新日期
+   - 提示补充：项目名称、核心目标、业务逻辑等描述性内容
+   - 精简模式：小型项目自动生成 3 章节精简版模板
 4. **同步 (Sync)**：创建软链接，将 `GEMINI.md` 和 `CLAUDE.md` 指向 `AGENTS.md`。
+   - 冲突处理：检测到现有文件时默认备份，支持跳过/覆盖选项
 
 ---
 
@@ -63,6 +69,11 @@ description: 初始化项目规范，同步多平台 AI 开发上下文。
 - **规范**：遵循 [例如：Google Python Style Guide / Standard JS]。
 - **安全**：禁止在代码中包含硬编码的密钥，使用 `.env`。
 - **注释**：所有 Public 接口必须包含中文 JSDoc/Docstring 描述。
+
+## 6. AI 交互规范（可选）
+- 输出语言：与用户交流默认使用简体中文，代码注释使用英文
+- 代码风格：遵循项目 eslint/ruff/prettier 配置
+- 输出格式：优先使用代码块展示可执行内容，关键步骤添加简要说明
 ```
 
 ### 如何完成“软链接”操作？
