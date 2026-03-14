@@ -1,0 +1,23 @@
+{
+  "skill_name": "flutter-build",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我打个 release 包并安装到手机",
+      "expected_output": "自动清理缓存、同步依赖、递增版本号、构建release包、检测真机并安装，最终输出安装结果和导出路径",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "打个 debug 包，不需要更新版本号",
+      "expected_output": "不更新版本号，构建debug包，导出到Downloads目录，不自动安装",
+      "files": [".flutterbuild.yml"]
+    },
+    {
+      "id": 3,
+      "prompt": "同时构建 Android 和 iOS 两个平台的正式包",
+      "expected_output": "同时构建两个平台的release包，分别导出到Downloads目录",
+      "files": [".flutterbuild.yml"]
+    }
+  ]
+}
