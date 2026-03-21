@@ -1,5 +1,5 @@
 ---
-name: init
+name: init-agent
 description: 初始化项目 AI 开发规范，当用户需要创建项目协作准则、同步多 AI 上下文时使用。
 ---
 
